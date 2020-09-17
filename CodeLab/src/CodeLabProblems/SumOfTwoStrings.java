@@ -15,6 +15,12 @@ public class SumOfTwoStrings {
         if (num1.equals("") || num1.length() < 2 || num2.equals("") || num2.length() < 2) {
             return 0;
         }
+        if (num1.charAt(0) == '-') {
+            num1 = num1.substring(1);
+        }
+        if (num2.charAt(0) == '-') {
+            num2 = num2.substring(1);
+        }
         int num1Int = convertString(num1.substring(1), 0) * -1;
         int num2Int = convertString(num2.substring(1), 0) * -1;
         return num1Int + num2Int;
