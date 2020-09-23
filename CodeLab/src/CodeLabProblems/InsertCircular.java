@@ -3,7 +3,7 @@ import DataStructure.*;
 
 public class InsertCircular {
     public static void main(String[] args) {
-        int nums[] = {1 ,3, 5};
+        Integer nums[] = {1 ,3, 5};
         int insertVal = 4;
         CustomLinkList list = new CustomLinkList(nums);
         CustomListNode back = list.getBack();
@@ -14,23 +14,22 @@ public class InsertCircular {
         System.out.println(list.toString());
     }
 
-    public static CustomListNode insertCircular(CustomListNode head, int insertVal) {
+    public static CustomListNode<Integer> insertCircular(CustomListNode<Integer> head, int insertVal) {
         /*
         * Insert into a Sorted Circular Linked List
         *
         * Traverse through the list and find the best place to insert node
         * exit condition: when node is inserted
         * */
-        CustomListNode newNode = new CustomListNode(insertVal);
+        CustomListNode<Integer> newNode = new CustomListNode<>(insertVal);
         if (head == null) {
             newNode.next = newNode;
             return newNode;
         }
-        CustomListNode curr = head;
+        CustomListNode<Integer> curr = head;
         while(newNode.next == null) {
-            if ((insertVal >= curr.data && insertVal <= curr.next.data) ||
-                    (curr.next == head && insertVal < curr.data && insertVal >= curr.data)) {
-                CustomListNode temp = curr.next;
+            if (insertVal >= curr.data && insertVal <= curr.next.data) {
+                CustomListNode<Integer> temp = curr.next;
                 curr.next = newNode;
                 newNode.next = temp;
             }

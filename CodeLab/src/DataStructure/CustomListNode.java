@@ -1,12 +1,12 @@
 package DataStructure;
 
-public class CustomListNode {
-    public int data;
-    public CustomListNode next;
+public class CustomListNode<T> {
+    public T data;
+    public CustomListNode<T> next;
 
     public CustomListNode() {}
 
-    public CustomListNode(int data) {
+    public CustomListNode(T data) {
         this.data = data;
         this.next = null;
     }

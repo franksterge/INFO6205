@@ -19,12 +19,12 @@ public class RemoveDuplicateFromLinkedList {
         }
     }
 
-    public static CustomListNode removeDuplicate(CustomListNode list) {
+    public static CustomListNode<Integer> removeDuplicate(CustomListNode<Integer> list) {
         if (list == null || list.next == null) {
             return list;
         }
-        CustomListNode curr = list;
-        int currVal = curr.data;
+        CustomListNode<Integer> curr = list;
+        Integer currVal = curr.data;
         while (curr.next != null) {
             if (currVal == curr.next.data) {
                 curr.next = curr.next.next;

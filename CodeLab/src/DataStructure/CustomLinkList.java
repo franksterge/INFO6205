@@ -1,29 +1,28 @@
 package DataStructure;
-import DataStructure.CustomListNode;
 
-public class CustomLinkList {
-    public CustomListNode front;
-    private CustomListNode back;
+public class CustomLinkList<T> {
+    public CustomListNode<T> front;
+    private CustomListNode<T> back;
     private int size;
 
     public CustomLinkList() {
 
     }
 
-    public CustomLinkList(int[] nums) {
-        this.front = new CustomListNode(nums[0]);
-        CustomListNode curr = this.front;
+    public CustomLinkList(T[] nums) {
+        this.front = new CustomListNode<>(nums[0]);
+        CustomListNode<T> curr = this.front;
         this.back = this.front;
         this.size = nums.length;
         for (int i = 1; i < nums.length; i++) {
-            curr.next = new CustomListNode(nums[i]);
+            curr.next = new CustomListNode<>(nums[i]);
             curr = curr.next;
             this.back = this.back.next;
         }
     }
 
     public String toString() {
-        CustomListNode curr = this.front;
+        CustomListNode<T> curr = this.front;
         String listString = "";
         for (int i = 0; i < this.size; i++) {
             listString = listString + curr.data + " -> ";
@@ -39,7 +38,7 @@ public class CustomLinkList {
         return listString;
     }
 
-    public CustomListNode getBack(){
+    public CustomListNode<T> getBack(){
         return this.back;
     }
 

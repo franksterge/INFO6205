@@ -3,15 +3,15 @@ import DataStructure.*;
 
 public class PartitionList {
     public static void main(String[] args) {
-        int nums[] = {1, 4, 3, 2, 5, 2};
+        Integer nums[] = {1, 4, 3, 2, 5, 2};
         int x = 3;
-        CustomLinkList list = new CustomLinkList(nums);
+        CustomLinkList<Integer> list = new CustomLinkList<>(nums);
         System.out.println(list.toString());
         list.front = partiontionList(list.front, x);
         System.out.println(list.toString());
     }
 
-    public static CustomListNode partiontionList(CustomListNode head, int x) {
+    public static CustomListNode<Integer> partiontionList(CustomListNode<Integer> head, int x) {
         /*
         * Given a linked list and a value x, partition it such that all nodes less than x come before
         * nodes greater than or equal to x. You should preserve the original relative order of the
@@ -24,8 +24,8 @@ public class PartitionList {
         * - O(n)
         * */
 
-        CustomListNode parted = head;
-        CustomListNode curr = head;
+        CustomListNode<Integer> parted = head;
+        CustomListNode<Integer> curr = head;
         if (head == null) {
             return head;
         }
@@ -37,8 +37,8 @@ public class PartitionList {
 
         while (curr.next != null) {
             if (curr.next.data < x) {
-                CustomListNode back = curr.next.next;
-                CustomListNode mid = parted.next;
+                CustomListNode<Integer> back = curr.next.next;
+                CustomListNode<Integer> mid = parted.next;
                 parted.next = curr.next;
                 parted = parted.next;
                 if (mid != parted) {
