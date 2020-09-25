@@ -1,4 +1,4 @@
-package CodeLabProblems;
+package CodeLabProblems.Array;
 
 public class TwoSumProblems {
     public static void main(String[] args) {
@@ -9,8 +9,16 @@ public class TwoSumProblems {
 
     public static int[] twoSumProblems(int[] nums, int target) {
         /*
-         * Given an array of integers nums and an integer target, return indices of the two numbers such that they
+         *  Leetcode 1
+         *  Given an array of integers nums and an integer target, return indices of the two numbers such that they
          * add up to target.
+         *
+         * brute force
+         * TODO: OPTIMIZE
+         * Algo:
+         *  - 2 indeces, one at beginning of array, one at the end, move if either side is
+         *    over the target
+         *      runtime O(n)
          * */
         int[] result = new int[2];
         for (int i = 0; i < nums.length; i ++) {

@@ -1,11 +1,11 @@
-package CodeLabProblems;
+package CodeLabProblems.LinkedList;
 import DataStructure.*;
 
 public class InsertCircular {
     public static void main(String[] args) {
         Integer nums[] = {1 ,3, 5};
         int insertVal = 4;
-        CustomLinkList list = new CustomLinkList(nums);
+        CustomLinkList list = new CustomLinkList(nums, true);
         CustomListNode back = list.getBack();
         back.next = list.front;
         System.out.println(list.toString());

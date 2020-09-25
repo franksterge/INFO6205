@@ -1,4 +1,4 @@
-package CodeLabProblems;
+package CodeLabProblems.LinkedList;
 import DataStructure.CustomListNode;
 
 public class RemoveDuplicateFromLinkedList {

@@ -1,4 +1,4 @@
-package CodeLabProblems;
+package CodeLabProblems.String;
 import java.util.HashMap;
 
 public class CheckPermutation {

@@ -1,11 +1,11 @@
-package CodeLabProblems;
+package CodeLabProblems.LinkedList;
 import DataStructure.*;
 
 public class PartitionList {
     public static void main(String[] args) {
         Integer nums[] = {1, 4, 3, 2, 5, 2};
         int x = 3;
-        CustomLinkList<Integer> list = new CustomLinkList<>(nums);
+        CustomLinkList<Integer> list = new CustomLinkList<>(nums, false);
         System.out.println(list.toString());
         list.front = partiontionList(list.front, x);
         System.out.println(list.toString());

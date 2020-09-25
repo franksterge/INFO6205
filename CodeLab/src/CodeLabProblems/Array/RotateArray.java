@@ -1,4 +1,4 @@
-package CodeLabProblems;
+package CodeLabProblems.Array;
 
 public class RotateArray {
     public static void main(String[] args) {
@@ -13,10 +13,13 @@ public class RotateArray {
 
     public static int[] rotateArray(int[] arr, int k) {
         /*
+        *  Leetcode 189
         *  Given an array, rotate the array to the right by k steps, where k is non-negative.
         *  Whiteboard:
         *       steps   firstIndex to be wrapped                    last index moved to
         *       k       k from the last index -> arr.length - k     k - 1
+        *
+        * runtime: O(n + 1/2 * n + 1/2 * n) = O(n)
          * */
         if (k > arr.length) {
             k = k % arr.length;

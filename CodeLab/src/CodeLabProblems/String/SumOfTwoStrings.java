@@ -1,4 +1,4 @@
-package CodeLabProblems;
+package CodeLabProblems.String;
 
 public class SumOfTwoStrings {
     public static void main(String[] args) {
