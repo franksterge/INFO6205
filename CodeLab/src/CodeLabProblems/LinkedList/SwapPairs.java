@@ -33,7 +33,7 @@ public class SwapPairs {
     * */
         CustomListNode<Integer> current = head;
         int count = 0;
-        if (current.next == null) {
+        if (current == null || current.next == null) {
             return head;
         }
         while (current.next != null) {
