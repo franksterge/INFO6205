@@ -1,5 +1,8 @@
 package CodeLabProblems.Array;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TwoSumProblems {
     public static void main(String[] args) {
         int[] nums = {2, 7, 11, 15};
@@ -14,21 +17,20 @@ public class TwoSumProblems {
          * add up to target.
          *
          * brute force
-         * TODO: OPTIMIZE
+         *
          * Algo:
          *  - 2 indeces, one at beginning of array, one at the end, move if either side is
          *    over the target
          *      runtime O(n)
+         * use map. put the current element as key and index as value
+         * if there is a match, return result
          * */
-        int[] result = new int[2];
-        for (int i = 0; i < nums.length; i ++) {
-            for (int j = 0; j < nums.length; j++) {
-                if (i != j && nums[i] + nums[j] == target) {
-                    result[0] = i;
-                    result[1] = j;
-                }
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(target - nums[i])) {
+                return new int[] {map.get(target - nums[i]), i};
             }
+            map.put(nums[i], i);
         }
-        return result;
     }
 }

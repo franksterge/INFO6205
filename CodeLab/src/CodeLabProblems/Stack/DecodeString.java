@@ -32,56 +32,35 @@ public class DecodeString {
          * TODO: review this problem
          * */
         Stack<Character> charStack = new Stack<>();
-        ArrayList<Character> resultList = new ArrayList<>();
-        String result = "";
-        char[] resultChar = new char[s.length()];
         for (char c : s.toCharArray()) {
             if (c != ']') {
                 charStack.push(c);
             } else {
-                int repeat = getRepeat(resultList, charStack);
-                int listSize = resultList.size();
-                for (int i = 0; i < repeat - 1; i++) {
-                    for (int j = 0; j < listSize; j++) {
-                        resultList.add(resultList.get(j));
+                ArrayList<Character> currentSequence = new ArrayList<>();
+                while (charStack.peek() != '[') {
+                        currentSequence.add(charStack.pop());
+                }
+                charStack.pop();
+                int repeat = 0;
+                String repeatStr = "";
+                while (!charStack.isEmpty() && charStack.peek() >= '0' && charStack.peek() <= '9') {
+                    repeatStr  = charStack.pop() + repeatStr;
+                }
+                repeat = Integer.parseInt(repeatStr);
+                for (int i = 0; i < repeat; i++) {
+                    for (int j = currentSequence.size() - 1; j >= 0; j --) {
+                        charStack.push(currentSequence.get(j));
                     }
                 }
-
             }
         }
-        char[] charArr = new char[resultList.size()];
-        for (int i = resultList.size() - 1; i >= 0; i--) {
-            charArr[resultList.size() - 1 - i] = resultList.get(i);
-        }
-        result = new String(charArr);
-        return result;
-    }
 
-    public static int getRepeat(ArrayList<Character> resultStack, Stack<Character> charStack) {
-        while (charStack.peek() != '[') {
-            resultStack.add(charStack.pop());
+        char[] charArr = new char[charStack.size()];
+        int i = charArr.length - 1;
+        while (!charStack.isEmpty()) {
+            charArr[i] = charStack.pop();
+            i --;
         }
-//        pop the [
-        charStack.pop();
-        int repeat = 0;
-        while (!charStack.isEmpty() && isNumber(charStack.peek())) {
-            repeat = repeat * 10 + charStack.pop() - '0';
-        }
-        if (repeat == 0) {
-            repeat = 1;
-        }
-        return repeat;
-    }
-
-    public static boolean isNumber (char c) {
-        return '0' <= c && '9' >= c;
-    }
-
-    public static Stack<String> reverseStack(Stack<String> st) {
-        Stack<String> temp = new Stack<String>();
-        while (!st.isEmpty()) {
-            temp.push(st.pop());
-        }
-        return temp;
+        return new String(charArr);
     }
 }
